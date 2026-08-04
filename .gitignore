@@ -1,0 +1,53 @@
+# Compiled object files
+*.o
+*.obj
+*.obj.o
+
+# Compiled shared/static libraries
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.lib
+
+# Compiled executables (no extension on Unix)
+*.out
+*.exe
+a.out
+
+# macOS debug symbol bundles
+*.dSYM/
+*.dSYM
+
+# Clang/GCC coverage and profiling artifacts
+*.gcno
+*.gcda
+*.gcov
+*.prof
+*.profraw
+gmon.out
+
+# Core dumps and crash logs
+core
+core.*
+*.crash
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build directories
+build/
+bin/
+out/
+debug/
+release/
+
+# Local tooling
+compile_commands.json
+.cache/
