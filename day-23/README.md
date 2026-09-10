@@ -102,21 +102,31 @@ Visit nodes **level by level**, left to right. We use a simple **queue of pointe
 
 逐层、从左到右访问节点。我们使用一个由数组支持的简单的**指针队列**：每出队一个节点就打印它，并将其非空的孩子入队。
 
+为什么用队列？
+队列的特点是先进先出（FIFO）。层序遍历要求：先访问的节点，它的孩子也要先被访问。这正好和队列的特性吻合。
+
+对比一下：
+
+DFS（前/中/后序） 用栈（或递归），一条路走到黑；
+
+BFS（层序） 用队列，一层一层往外扩。
+
 ```c
 #define MAXQ 128
 
 void levelorder(struct TreeNode *root)
 {
-    if (!root) return;
-    struct TreeNode *q[MAXQ];
-    int head = 0, tail = 0;
-    q[tail++] = root;            // enqueue root
+    if (!root) return;              // 空树直接返回
+    struct TreeNode *q[MAXQ];       // 用数组模拟队列
+    int head = 0, tail = 0;         // head: 出队位置; tail: 入队位置
+    q[tail++] = root;               // 根节点入队
 
-    while (head != tail) {
-        struct TreeNode *cur = q[head++];   // dequeue
-        printf("%d ", cur->data);
-        if (cur->left)  q[tail++] = cur->left;
-        if (cur->right) q[tail++] = cur->right;
+    while (head != tail) {          // 队列非空时循环
+        struct TreeNode *cur = q[head++];   // 出队一个节点
+        printf("%d ", cur->data);           // 访问它
+
+        if (cur->left)  q[tail++] = cur->left;   // 左孩子入队
+        if (cur->right) q[tail++] = cur->right;  // 右孩子入队
     }
 }
 ```
