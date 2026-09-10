@@ -34,5 +34,4 @@
 | Day 29 | [AVL Trees](https://github.com/balapriyac/30-Days-of-C/tree/main/day-29)| [Day 29 Notes](https://github.com/balapriyac/30-Days-of-C/blob/main/day-29/day-29-summary.md)|
 | Day 30 | [Miscellaneous](https://github.com/balapriyac/30-Days-of-C/tree/main/day-30)| [Day 30 Notes](https://github.com/balapriyac/30-Days-of-C/blob/main/day-30/day-30-summary.md)|
 
-
-贪心、背包，动态规划等
+| [进阶算法专题](advanced-algorithms.md) | 贪心、动态规划、背包问题 | Greedy, Dynamic Programming, Knapsack |
