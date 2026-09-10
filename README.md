@@ -35,3 +35,4 @@
 | Day 30 | [Miscellaneous](https://github.com/balapriyac/30-Days-of-C/tree/main/day-30)| [Day 30 Notes](https://github.com/balapriyac/30-Days-of-C/blob/main/day-30/day-30-summary.md)|
 
 
+贪心、背包，动态规划等
