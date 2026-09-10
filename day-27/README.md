@@ -79,6 +79,92 @@ Each `adj[u]` is a singly linked list of vertices adjacent to `u`. Prepending ke
 
 每个 `adj[u]` 是与 `u` 相邻的顶点的单链表。头插法使插入 O(1)，但邻居顺序会反过来 —— 对遍历演示无影响。
 
+### 3.1 `addEdge` 详细解释 | Detailed Explanation of `addEdge`
+
+**English**
+
+```c
+void addEdge(struct Graph *g, int u, int v) {       /* undirected */
+    struct Node *n1 = malloc(sizeof(*n1)); n1->v = v; n1->next = g->adj[u]; g->adj[u] = n1;
+    struct Node *n2 = malloc(sizeof(*n2)); n2->v = u; n2->next = g->adj[v]; g->adj[v] = n2;
+}
+```
+
+Because the graph is **undirected**, adding an edge between `u` and `v` means two things:
+
+1. `v` must appear in `u`'s neighbor list, and
+2. `u` must appear in `v`'s neighbor list.
+
+That is why the function allocates **two** nodes. Each line is a **head insertion** (prepend) into a linked list:
+
+- `malloc(sizeof(*n1))` — allocate one heap node.
+- `n1->v = v` — store the destination vertex in the node.
+- `n1->next = g->adj[u]` — make the new node point to the *current* head of `u`'s list (which may be `NULL`).
+- `g->adj[u] = n1` — make the new node the new head of `u`'s list.
+
+The second line (`n2`) does the exact same thing in the reverse direction, linking `u` into `v`'s list.
+
+**Worked example** — calling `addEdge(&g, 0, 1)` on an initially empty graph:
+
+```
+Before: adj[0] = NULL          adj[1] = NULL
+
+After n1:                      After n2:
+  adj[0] -> [v=1|next=NULL]      adj[0] -> [v=1|next=NULL]
+  adj[1] = NULL                  adj[1] -> [v=0|next=NULL]
+```
+
+Now call `addEdge(&g, 0, 2)`:
+
+```
+n1 (add 2 to 0):  adj[0] -> [v=2|next] -> [v=1|next=NULL]
+n2 (add 0 to 2):  adj[2] -> [v=0|next=NULL]
+```
+
+Notice how each new neighbor lands at the **front**, so `adj[0]`'s list reads in the *reverse* insertion order (`2` before `1`). This is why the DFS/BFS output order depends on insertion order, even though the set of visited vertices stays the same.
+
+**中文**
+
+```c
+void addEdge(struct Graph *g, int u, int v) {       /* 无向图 */
+    struct Node *n1 = malloc(sizeof(*n1)); n1->v = v; n1->next = g->adj[u]; g->adj[u] = n1;
+    struct Node *n2 = malloc(sizeof(*n2)); n2->v = u; n2->next = g->adj[v]; g->adj[v] = n2;
+}
+```
+
+因为这是**无向图**，在 `u` 和 `v` 之间加一条边，意味着两件事：
+
+1. `v` 必须出现在 `u` 的邻居链表中；
+2. `u` 必须出现在 `v` 的邻居链表中。
+
+所以函数要**分配两个节点**。每一行都是一次链表的**头插法**（前插）：
+
+- `malloc(sizeof(*n1))` —— 在堆上分配一个节点。
+- `n1->v = v` —— 把目标顶点存入节点。
+- `n1->next = g->adj[u]` —— 让新节点指向 `u` 链表当前的头部（可能为 `NULL`）。
+- `g->adj[u] = n1` —— 让新节点成为 `u` 链表的新头部。
+
+第二行（`n2`）做的是完全相同的事，只是方向反过来：把 `u` 链入 `v` 的链表。
+
+**实例演示** —— 在空图上调用 `addEdge(&g, 0, 1)`：
+
+```
+之前： adj[0] = NULL            adj[1] = NULL
+
+执行 n1 之后：                  执行 n2 之后：
+  adj[0] -> [v=1|next=NULL]       adj[0] -> [v=1|next=NULL]
+  adj[1] = NULL                   adj[1] -> [v=0|next=NULL]
+```
+
+再调用 `addEdge(&g, 0, 2)`：
+
+```
+n1（把 2 加入 0）:  adj[0] -> [v=2|next] -> [v=1|next=NULL]
+n2（把 0 加入 2）:  adj[2] -> [v=0|next=NULL]
+```
+
+注意每个新邻居都被插入到**最前面**，所以 `adj[0]` 的链表是按插入顺序**逆序**排列的（`2` 在 `1` 前面）。这就是为什么 DFS/BFS 的输出顺序取决于插入顺序，但访问到的顶点集合保持不变。
+
 ---
 
 ## 4. Breadth-First Search (BFS) | 广度优先搜索
