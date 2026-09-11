@@ -34,4 +34,18 @@
 | Day 29 | [AVL Trees](https://github.com/balapriyac/30-Days-of-C/tree/main/day-29)| [Day 29 Notes](https://github.com/balapriyac/30-Days-of-C/blob/main/day-29/day-29-summary.md)|
 | Day 30 | [Miscellaneous](https://github.com/balapriyac/30-Days-of-C/tree/main/day-30)| [Day 30 Notes](https://github.com/balapriyac/30-Days-of-C/blob/main/day-30/day-30-summary.md)|
 
-| [进阶算法专题](advanced-algorithms.md) | 贪心、动态规划、背包问题 | Greedy, Dynamic Programming, Knapsack |
+## 🧩 进阶数据结构专题 | Advanced Data Structures
+
+| Day # | Topics Covered | Summary |
+|-------|---------------|---------|
+| Day 31 | [Hash Table 哈希表](day-31) | [Day 31 Notes](day-31/day-31-summary.md) |
+| Day 32 | [Heap & Priority Queue 堆与优先队列](day-32) | [Day 32 Notes](day-32/day-32-summary.md) |
+| Day 33 | [Doubly & Circular Linked List 双向与循环链表](day-33) | [Day 33 Notes](day-33/day-33-summary.md) |
+| Day 34 | [Deque 双端队列](day-34) | [Day 34 Notes](day-34/day-34-summary.md) |
+| Day 35 | [Trie 字典树](day-35) | [Day 35 Notes](day-35/day-35-summary.md) |
+| Day 36 | [Union-Find 并查集](day-36) | [Day 36 Notes](day-36/day-36-summary.md) |
+| Day 37 | [Segment Tree & Fenwick Tree 线段树与树状数组](day-37) | [Day 37 Notes](day-37/day-37-summary.md) |
+| Day 38 | [Red-Black Tree 红黑树](day-38) | [Day 38 Notes](day-38/day-38-summary.md) |
+| Day 39 | [Skip List & Bloom Filter 跳表与布隆过滤器](day-39) | [Day 39 Notes](day-39/day-39-summary.md) |
+
+| [进阶算法专题](day-99/advanced-algorithms.md) | 贪心、动态规划、背包问题 | Greedy, Dynamic Programming, Knapsack |
