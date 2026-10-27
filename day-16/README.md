@@ -76,3 +76,14 @@ When a list ADT is implemented on top of a **statically-sized array**, the stora
 | File | Description | 说明 |
 |------|-------------|------|
 | `content.md` | Day 16 notes (to be filled in) | 第十六天学习笔记（待补充） |
+
+## 其他
+
+线性表
+├── 顺序表
+│   └── 数组实现
+│
+└── 链表
+    ├── 单链表
+    ├── 双链表
+    └── 循环链表

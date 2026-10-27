@@ -10,5 +10,6 @@ int main(int argc, char **argv) //int main(int argc, char *argv[]) would work fi
   {
 		printf("argc = %d arg %d is %s\n", argc, i, argv[i]);	// prints arg at index i
 	}
+  printf("%s\n", "jjjjs");
 	return 0;
 }
